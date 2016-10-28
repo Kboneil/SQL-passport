@@ -7,6 +7,9 @@ const register = require('./routes/register');
 const auth = require('./auth/setup');
 const passport = require('passport');
 const session = require('express-session');
+const user = require('./models/user');
+
+auth.setup();
 
 const sessionConfig = {
   secret: 'super secret key goes here', // TODO this should be read from ENV
@@ -19,8 +22,8 @@ const sessionConfig = {
   }
 };
 
-connection.connect();
-auth.setup();
+
+// auth.setup();
 
 const app = express();
 
